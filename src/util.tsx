@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@chakra-ui/core'
+import { Link } from '@chakra-ui/react'
 
 export const getLink = (name: string, link: string) => {
   return (

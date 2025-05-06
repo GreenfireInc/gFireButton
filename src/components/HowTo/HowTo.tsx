@@ -13,7 +13,7 @@ import {
   HStack,
   Code,
   useColorModeValue,
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import { getLink } from '../../util'
 
 import { CONTRIBUTION_AMOUNT_STRING, TZBUTTON_CONTRACT } from '../../constants'
@@ -51,7 +51,7 @@ const HowTo: React.FC = () => {
             <OrderedList>
               <ListItem>
                 You will add <b>{CONTRIBUTION_AMOUNT_STRING()}</b> to the smart
-                contract’s balance
+                contract's balance
               </ListItem>
               <ListItem>
                 The address of the sender will become the leader
@@ -151,7 +151,7 @@ const HowTo: React.FC = () => {
       title: 'Why TzButton?',
       description: (
         <>
-          The experiment was inspired by “the Button” (an experiment conducted
+          The experiment was inspired by "the Button" (an experiment conducted
           with Reddit users {buttonRedditLink}). Besides the fact that the
           behavior of the participating users will be automatically recorded on
           the blockchain and analyzed + published on this site, there are also

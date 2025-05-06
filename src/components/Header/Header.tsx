@@ -15,8 +15,8 @@ import {
   Heading,
   useToast,
   Flex,
-} from '@chakra-ui/core'
-import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/core'
+} from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
 import { getLink } from '../../util'
 import TzButton from '../TzButton/TzButton'
 
@@ -163,6 +163,8 @@ const globalColorState: ColorState = {
   color: undefined,
 }
 
+const FaChevronDownComponent = FaChevronDown as React.ComponentType<{ size?: number }>
+
 const Header: React.FC = () => {
   const toast = useToast()
   const [state, setState] = useState<AppState>(globalState)
@@ -270,7 +272,7 @@ const Header: React.FC = () => {
       <Menu>
         <MenuButton
           as={Button}
-          rightIcon={<FaChevronDown />}
+          rightIcon={<FaChevronDownComponent size={20} />}
           disabled={myColors.length === 0}
         >
           {selectedColor ? (

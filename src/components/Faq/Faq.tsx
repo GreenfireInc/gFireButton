@@ -11,7 +11,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import { CONTRIBUTION_AMOUNT_STRING } from '../../constants'
 

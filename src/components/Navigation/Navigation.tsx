@@ -8,9 +8,12 @@ import {
   useColorMode,
   useColorModeValue,
   Button,
-} from '@chakra-ui/core'
-
-import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/core'
+  Stack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from '@chakra-ui/react'
 
 import { FaGithub, FaMoon, FaSun, FaBell } from 'react-icons/fa'
 import { TZBUTTON_CONTRACT } from '../../constants'
@@ -49,6 +52,10 @@ const Navigation: React.FC = () => {
 
   getMyAddress().then(setAddress)
 
+  const FaBellComponent = FaBell as React.ComponentType<{ size?: number }>
+  const FaGithubComponent = FaGithub as React.ComponentType<{ size?: number }>
+  const SwitchIconComponent = SwitchIcon as React.ComponentType<{ size?: number }>
+
   return (
     <Flex
       w="100%"
@@ -70,7 +77,7 @@ const Navigation: React.FC = () => {
               aria-label={`Get notified about updates`}
               variant="ghost"
               color="current"
-              icon={<FaBell />}
+              icon={<FaBellComponent size={20} />}
             />
           </Link>
           <Link href="https://github.com/tzbutton/tzbutton" isExternal>
@@ -80,7 +87,7 @@ const Navigation: React.FC = () => {
               aria-label={`Open on GitHub`}
               variant="ghost"
               color="current"
-              icon={<FaGithub />}
+              icon={<FaGithubComponent size={20} />}
             />
           </Link>
           <IconButton
@@ -90,7 +97,7 @@ const Navigation: React.FC = () => {
             variant="ghost"
             color="current"
             onClick={toggle}
-            icon={<SwitchIcon />}
+            icon={<SwitchIconComponent size={20} />}
           />
         </HStack>
         <Menu>
