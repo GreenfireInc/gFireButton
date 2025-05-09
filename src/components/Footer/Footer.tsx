@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Flex,
@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 import { FaGithub, FaTwitter, FaEnvelope, FaLinkedin, FaMedium } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
+import StatsModal from '../StatsModal/StatsModal'
 
 interface SocialLinkProps {
   icon: IconType
@@ -41,6 +42,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, href, label }) => {
 
 const Footer: React.FC = () => {
   const { colorMode } = useColorMode()
+  const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
 
   return (
     <Box 
@@ -62,7 +64,7 @@ const Footer: React.FC = () => {
           <VStack align="start" spacing={3}>
             <Text fontSize="lg" fontWeight="semibold">About gFireButton</Text>
             <Text fontSize="sm" color="gray.500">
-            A continuation of the social experiment on the Tezos blockchain based on TZButton.
+              A continuation of the social experiment on the Tezos blockchain based on TZButton.
             </Text>
           </VStack>
         </GridItem>
@@ -81,6 +83,15 @@ const Footer: React.FC = () => {
               <Link href="/api" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
                 API
               </Link>
+              <Button
+                variant="link"
+                fontSize="sm"
+                color="gray.500"
+                _hover={{ color: 'blue.500' }}
+                onClick={() => setIsStatsModalOpen(true)}
+              >
+                Stats & Metrics
+              </Button>
             </VStack>
           </VStack>
         </GridItem>
@@ -187,6 +198,11 @@ const Footer: React.FC = () => {
           />
         </HStack>
       </Flex>
+
+      <StatsModal
+        isOpen={isStatsModalOpen}
+        onClose={() => setIsStatsModalOpen(false)}
+      />
     </Box>
   )
 }
