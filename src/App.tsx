@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <Stack minH="90vh">
         <Body />
         <HowTo />
-        <Faq />
+        {/* <Faq /> */}
       </Stack>
       <Footer />
     </ChakraProvider>

@@ -16,6 +16,7 @@ import {
 import { FaGithub, FaTwitter, FaEnvelope, FaLinkedin, FaMedium } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
 import StatsModal from '../StatsModal/StatsModal'
+import FaqModal from '../FaqModal/FaqModal'
 
 interface SocialLinkProps {
   icon: IconType
@@ -43,6 +44,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, href, label }) => {
 const Footer: React.FC = () => {
   const { colorMode } = useColorMode()
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
+  const [isFaqModalOpen, setIsFaqModalOpen] = useState(false)
 
   return (
     <Box 
@@ -77,9 +79,17 @@ const Footer: React.FC = () => {
               <Link href="/docs" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
                 Documentation
               </Link>
-              <Link href="/faq" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+              <Button
+                variant="link"
+                fontSize="sm"
+                color="gray.500"
+                _hover={{ color: 'blue.500' }}
+                onClick={() => setIsFaqModalOpen(true)}
+                textAlign="left"
+                pl={0}
+              >
                 FAQ
-              </Link>
+              </Button>
               <Link href="/api" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
                 API
               </Link>
@@ -202,6 +212,11 @@ const Footer: React.FC = () => {
       <StatsModal
         isOpen={isStatsModalOpen}
         onClose={() => setIsStatsModalOpen(false)}
+      />
+      
+      <FaqModal
+        isOpen={isFaqModalOpen}
+        onClose={() => setIsFaqModalOpen(false)}
       />
     </Box>
   )
